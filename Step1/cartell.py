@@ -6,7 +6,7 @@ DB_PATH = os.path.join(BASE_DIR, "CartellDB.txt")
 if not os.path.exits(DB_PATH):
     with open(DB_PATH, "w") as f:
         f.write("")
-  
+        
 def get_vehicles():
   with open(DB_PATH, "r") as f:
     lines = file.readlines() 
