@@ -1,9 +1,16 @@
 import os
-if not os.path.exits(CartellDB.txt):
-  os.mdkir(CartellDB.txt)
-else:
-  
 
-define main:
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, "CartellDB.txt")
+
+if not os.path.exits(DB_PATH):
+    with open(DB_PATH, "w") as f:
+        f.write("")
+  
+def get_vehicles():
+  with open(DB_PATH, "r") as f:
+    lines = file.readlines() 
+    for line in lines:
+        print(line.strip())
 
 
