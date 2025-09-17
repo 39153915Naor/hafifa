@@ -14,3 +14,4 @@ def get_vehicles():
         print(line.strip())
 
 
+def get_vehicle_by_id(<id>):
