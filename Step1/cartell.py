@@ -9,7 +9,7 @@ if not os.path.exits(DB_PATH):
         
 def get_vehicles():
   with open(DB_PATH, "r") as f:
-    lines = file.readlines() 
+    lines = f.readlines() 
     for line in lines:
         print(line.strip())
 
