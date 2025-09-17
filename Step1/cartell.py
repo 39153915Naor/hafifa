@@ -3,7 +3,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, "CartellDB.txt")
 
-if not os.path.exits(DB_PATH):
+if not os.path.exists(DB_PATH):
     with open(DB_PATH, "w") as f:
         f.write("")
         
@@ -14,7 +14,7 @@ def get_vehicles():
         print(line.strip())
 
 
-def get_vehicle_by_id(vehicle_id):
+def get_vehicle_by_id():
     vehicle_id = input("insert car number")
     if not vehicle_id.isdigit():
         print("error, must be number")
@@ -27,5 +27,9 @@ def get_vehicle_by_id(vehicle_id):
                     return
                 
     print("not in list")
+
+def add_vehicle():
+    vehicle_info = input("add vehicle")
+    with open(DB_PATH, "w") as f:
         
         
