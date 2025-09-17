@@ -28,8 +28,6 @@ def get_vehicle_by_id():
                 
     print("not in list")
 
-def add_vehicle():
-    vehicle_info = input("add vehicle")
-    with open(DB_PATH, "w") as f:
+
         
         
