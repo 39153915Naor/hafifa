@@ -14,6 +14,10 @@ def get_vehicles():
         print(line.strip())
 
 
-def get_vehicle_by_id(vehincles_id):
-    with open(DB_PATH, "w") as f:
+def get_vehicle_by_id(vehincle_id):
+    with open(DB_PATH, "r") as f:
+        lines = f.readlines() 
+        for line in lines:
+            if line.startwith(vehincle_id):
+        
         
