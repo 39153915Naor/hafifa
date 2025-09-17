@@ -15,6 +15,7 @@ def get_vehicles():
 
 
 def get_vehicle_by_id(vehicle_id):
+    vehicle_id = input("insert car number")
     if not vehicle_id.isdigit():
         print("error, must be number")
     else:
