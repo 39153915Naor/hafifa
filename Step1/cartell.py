@@ -14,10 +14,17 @@ def get_vehicles():
         print(line.strip())
 
 
-def get_vehicle_by_id(vehincle_id):
-    with open(DB_PATH, "r") as f:
-        lines = f.readlines() 
-        for line in lines:
-            if line.startwith(vehincle_id):
+def get_vehicle_by_id(vehicle_id):
+    if not vehicle_id.isdigit():
+        print("error, must be number")
+    else:
+        with open(DB_PATH, "r") as f:
+            lines = f.readlines() 
+            for line in lines:
+                if line.startswith(vehicle_id + " "):
+                    print(line.strip())
+                    return
+                
+    print("not in list")
         
         
