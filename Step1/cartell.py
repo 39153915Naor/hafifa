@@ -60,7 +60,7 @@ def add_vihicle():
                 return
                 
     with open(DB_PATH, "a") as f:
-         f.write(car_num + " "company + " "color + " "car_year + " "car_km\n)
+         f.write(car_num + " " + company + " " + color + " " + car_year + " " + car_km + "\n")
          print("car added")
 
 
