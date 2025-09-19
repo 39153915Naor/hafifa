@@ -64,6 +64,25 @@ def add_vihicle():
          print("car added")
 
 
+def main():
+    tries = 0
+    while true:
+        options = input("choose your choice\n 1: show all vehicles.\n 2: get vehicle by number.\n 3: add a new vehicle.\n type exit to quit")
+        if options == "1":
+            get_vehicles()
+        elif options == "2":
+            get_vehicle_by_id()
+        elif options == "3":
+            add_vihicle()
+        elif options.lower() == "exit":
+            print("Exiting the system, goodbye")
+            break
+        else:
+            tries +=1
+        if tries > 5:
+            print("Too many invalid attempts. System terminating due to security concerns.")
+            break
+        
 
 
 
