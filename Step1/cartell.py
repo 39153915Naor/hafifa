@@ -10,7 +10,7 @@ if not os.path.exists(DB_PATH):
 def get_vehicles():
   with open(DB_PATH, "r") as f:
     lines = f.readlines()
-    if no lines():
+    if not lines:
         print("no cars in list")
         return
     for line in lines:
