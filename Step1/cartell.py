@@ -18,7 +18,7 @@ def get_vehicles():
 
 
 def get_vehicle_by_id():
-    vehicle_id = input("insert car number")
+    vehicle_id = input("insert car number\n")
     if not vehicle_id.isdigit():
         print("error, must be number")
     else:
@@ -33,11 +33,11 @@ def get_vehicle_by_id():
 
 
 def add_vihicle():
-    car_num = input("add car num")
-    company = input("add car company")
-    color = input("add car color")
-    car_year = input("add car year")
-    car_km = input("add car km")
+    car_num = input("add car num\n")
+    company = input("add car company\n")
+    color = input("add car color\n")
+    car_year = input("add car year\n")
+    car_km = input("add car km\n")
 
     
     if not car_num.isdigit():
