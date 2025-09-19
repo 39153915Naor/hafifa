@@ -34,24 +34,22 @@ def get_vehicle_by_id():
 
 def add_vihicle():
     car_num = input("add car num\n")
-    company = input("add car company\n")
-    color = input("add car color\n")
-    car_year = input("add car year\n")
-    car_km = input("add car km\n")
-
-    
     if not car_num.isdigit():
        print("Error: car num must be number")
        return
+    company = input("add car company\n")
     elif not company.isalpha():
        print("Error: company must be word")
        return
+    color = input("add car color\n")
     elif not color.isalpha():
         print("Error: color must be word")
         return
+    car_year = input("add car year\n")
     elif not car_year.isdigit():
         print("Error: car year must be number")
         return
+    car_km = input("add car km\n")
     elif not car_km.isdigit():
         print("Error: car km must be number")
         return
