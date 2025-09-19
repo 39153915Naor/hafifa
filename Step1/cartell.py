@@ -79,7 +79,7 @@ def main():
             break
         else:
             tries +=1
-        if tries > 5:
+        if tries >= 5:
             print("Too many invalid attempts. System terminating due to security concerns.")
             break
 if __name__ == "__main__":
