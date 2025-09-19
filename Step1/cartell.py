@@ -67,7 +67,7 @@ def add_vihicle():
 def main():
     tries = 0
     while True:
-        options = input("choose your choice\n 1: show all vehicles.\n 2: get vehicle by number.\n 3: add a new vehicle.\n type exit to quit")
+        options = input("choose your choice\n 1: show all vehicles.\n 2: get vehicle by number.\n 3: add a new vehicle.\n type exit to quit\n")
         if options == "1":
             get_vehicles()
         elif options == "2":
