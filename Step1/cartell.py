@@ -64,10 +64,9 @@ def add_vihicle():
         if not car_km.isdigit():
             print("Error: car km must be number")
             continue
-            else:
-                with open(DB_PATH, "a") as f:
-                    f.write(car_num + " " + company + " " + color + " " + car_year + " " + car_km + "\n")
-                    print("Car added")
+        with open(DB_PATH, "a") as f:
+            f.write(car_num + " " + company + " " + color + " " + car_year + " " + car_km + "\n")
+            print("Car added")
 
         add_again = input("Do you want to add another car? (yes/no)\n").strip().lower()
         if add_again != "yes":
