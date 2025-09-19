@@ -9,9 +9,10 @@ if not os.path.exists(DB_PATH):
         
 def get_vehicles():
   with open(DB_PATH, "r") as f:
-    if f == " ":
+    lines = f.readlines()
+    if no lines():
         print("no cars in list")
-    lines = f.readlines() 
+        return
     for line in lines:
         print(line.strip())
 
