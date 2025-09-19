@@ -24,9 +24,8 @@ def get_vehicle_by_id():
             for line in lines:
                 if line.startswith(vehicle_id + " "):
                     print(line.strip())
-                else:
-                    print("not in list")
                     return
+                print("not in list")
             
 
 
