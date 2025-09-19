@@ -78,6 +78,7 @@ def main():
             print("Exiting the system, goodbye")
             break
         else:
+            print("not avaidble, try again")
             tries +=1
         if tries >= 5:
             print("Too many invalid attempts. System terminating due to security concerns.")
