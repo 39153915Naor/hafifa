@@ -11,16 +11,16 @@ def get_vehicles():
   with open(DB_PATH, "r") as f:
     lines = f.readlines()
     if not lines:
-        print("no cars in list")
+        print("List is empty")
         return
     for line in lines:
         print(line.strip())
 
 
 def get_vehicle_by_id():
-    vehicle_id = input("insert car number\n")
+    vehicle_id = input("Insert car number\n")
     if not vehicle_id.isdigit():
-        print("error, must be number")
+        print("Error, must be number")
     else:
         with open(DB_PATH, "r") as f:
             lines = f.readlines() 
@@ -28,20 +28,20 @@ def get_vehicle_by_id():
                 if line.startswith(vehicle_id + " "):
                     print(line.strip())
                     return
-            print("not in list")
+            print("Not in list")
             
 
 
 def add_vihicle():
-    car_num = input("add car num\n")
+    car_num = input("Add car number\n")
     if not car_num.isdigit():
        print("Error: car num must be number")
        return
-    company = input("add car company\n")
+    company = input("Add car company\n")
     if not company.isalpha():
        print("Error: company must be word")
        return
-    color = input("add car color\n")
+    color = input("Add car color\n")
     if not color.isalpha():
         print("Error: color must be word")
         return
@@ -49,7 +49,7 @@ def add_vihicle():
     if not car_year.isdigit():
         print("Error: car year must be number")
         return
-    car_km = input("add car km\n")
+    car_km = input("Add car km\n")
     if not car_km.isdigit():
         print("Error: car km must be number")
         return
@@ -62,13 +62,13 @@ def add_vihicle():
                 
     with open(DB_PATH, "a") as f:
          f.write(car_num + " " + company + " " + color + " " + car_year + " " + car_km + "\n")
-         print("car added")
+         print("Car added")
 
 
 def main():
     tries = 0
     while True:
-        options = input("choose your choice\n 1: show all vehicles.\n 2: get vehicle by number.\n 3: add a new vehicle.\n type exit to quit\n")
+        options = input("Choose your choice\n 1: Show all vehicles.\n 2: Get vehicle by number.\n 3: Add a new vehicle.\n Type exit to quit\n")
         if options == "1":
             get_vehicles()
         elif options == "2":
@@ -79,7 +79,7 @@ def main():
             print("Exiting the system, goodbye")
             break
         else:
-            print("not avaidble, try again")
+            print("Not avaidble, try again")
             tries +=1
         if tries >= 5:
             print("Too many invalid attempts. System terminating due to security concerns.")
