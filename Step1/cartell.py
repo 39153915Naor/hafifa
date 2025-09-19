@@ -38,19 +38,19 @@ def add_vihicle():
        print("Error: car num must be number")
        return
     company = input("add car company\n")
-    elif not company.isalpha():
+    if not company.isalpha():
        print("Error: company must be word")
        return
     color = input("add car color\n")
-    elif not color.isalpha():
+    if not color.isalpha():
         print("Error: color must be word")
         return
     car_year = input("add car year\n")
-    elif not car_year.isdigit():
+    if not car_year.isdigit():
         print("Error: car year must be number")
         return
     car_km = input("add car km\n")
-    elif not car_km.isdigit():
+    if not car_km.isdigit():
         print("Error: car km must be number")
         return
     with open(DB_PATH, "r") as f:
