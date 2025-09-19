@@ -35,39 +35,43 @@ def get_vehicle_by_id():
 def add_vihicle():
     while True:
         car_num = input("Add car number\n")
+        if not car_num.isdigit():
+            print("Error: car num must be number")
+            return  
+
+        
         with open(DB_PATH, "r") as f:
             lines = f.readlines()
-            for line in lines:
-                if line.startswith(car_num + " "):
-                    print("Error: car in file")
-                    break
-        elif not car_num.isdigit():
-            print("Error: car num must be number")
-            continue
+            if any(line.startswith(car_num + " ") for line in lines):
+                print("Error: car in file")
+                return  
 
         company = input("Add car company\n")
         if not company.isalpha():
             print("Error: company must be word")
-            continue
+            return
 
         color = input("Add car color\n")
         if not color.isalpha():
             print("Error: color must be word")
-            continue
+            return
 
         car_year = input("Add car year\n")
         if not car_year.isdigit():
             print("Error: car year must be number")
-            continue
+            return
 
         car_km = input("Add car km\n")
         if not car_km.isdigit():
             print("Error: car km must be number")
-            continue
+            return
+
+        
         with open(DB_PATH, "a") as f:
             f.write(car_num + " " + company + " " + color + " " + car_year + " " + car_km + "\n")
             print("Car added")
 
+       
         add_again = input("Do you want to add another car? (yes/no)\n").strip().lower()
         if add_again != "yes":
             break
