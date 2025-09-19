@@ -35,7 +35,13 @@ def get_vehicle_by_id():
 def add_vihicle():
     while True:
         car_num = input("Add car number\n")
-        if not car_num.isdigit():
+        with open(DB_PATH, "r") as f:
+            lines = f.readlines()
+            for line in lines:
+                if line.startswith(car_num + " "):
+                    print("Error: car in file")
+                    break
+        elif not car_num.isdigit():
             print("Error: car num must be number")
             continue
 
@@ -58,14 +64,6 @@ def add_vihicle():
         if not car_km.isdigit():
             print("Error: car km must be number")
             continue
-
-       
-        with open(DB_PATH, "r") as f:
-            lines = f.readlines()
-            for line in lines:
-                if line.startswith(car_num + " "):
-                    print("Error: car in file")
-                    break
             else:
                 with open(DB_PATH, "a") as f:
                     f.write(car_num + " " + company + " " + color + " " + car_year + " " + car_km + "\n")
