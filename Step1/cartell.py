@@ -1,9 +1,17 @@
 import os
 import json
 import logging
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, "CartellDB.txt")
+from datetime import datetime
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+LOG_PATH = os.path.join(BASE_DIR, "cartellogs.txt")
+if not os.path.exists(DB_PATH):
+    with open(DB_PATH, "w") as f:
+        f.write("")
+
+
+DB_PATH = os.path.join(BASE_DIR, "CartellDB.json")
 if not os.path.exists(DB_PATH):
     with open(DB_PATH, "w") as f:
         f.write("")
