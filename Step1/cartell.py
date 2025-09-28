@@ -1,6 +1,4 @@
 import os
-import json
-import logging
 from datetime import datetime
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
