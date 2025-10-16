@@ -46,7 +46,6 @@ def get_vehicle_by_id():
     print(f"Date: {vehicle.get('date')}")
     print(f"User: {vehicle.get('user')}")
 
-          
 def add_vihicle():
     while True:
         car_num = input("Add car number\n")
@@ -100,7 +99,7 @@ def main():
         if options == "1":
             get_vehicles()
         elif options == "2":
-            get_vehicle_by_id(vehicle_id)
+            get_vehicle_by_id()
         elif options == "3":
             add_vihicle()
         elif options.lower() == "exit":
