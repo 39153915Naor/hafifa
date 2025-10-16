@@ -100,7 +100,7 @@ def main():
         if options == "1":
             get_vehicles()
         elif options == "2":
-            get_vehicle_by_id(vehicle_id)
+            get_vehicle_by_id()
         elif options == "3":
             add_vihicle()
         elif options.lower() == "exit":
