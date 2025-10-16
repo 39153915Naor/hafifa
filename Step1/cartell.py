@@ -11,12 +11,12 @@ if not os.path.exists(DB_PATH):
         
 def get_vehicles():
   with open(DB_PATH, "r") as f:
-    lines = f.readlines()
-    if not lines:
+    data = json.load(f)
+    if not data:
         print("List is empty")
         return
-    for line in lines:
-        print(line.strip())
+    for key,value in data.items():
+        print(key, ":", value)
 
 
 def get_vehicle_by_id():
