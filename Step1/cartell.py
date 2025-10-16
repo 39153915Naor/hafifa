@@ -19,38 +19,18 @@ def get_vehicles():
     for key,value in data.items():
         print(key, ":", value)
 
-def get_vehicle_by_id(vehicle_id):
-    """
-    מחפש רכב לפי ID ומחזיר את הפרטים שלו.
-    """
-    vehicle_id = str(vehicle_id)  # המפתח במילון הוא מחרוזת
-
-    # טוענים את המאגר
-    with open(DB_PATH, "r", encoding="utf-8") as f:
-        try:
-            data = json.load(f)
-        except json.JSONDecodeError:
-            print("Database is empty or corrupted.")
-            return
-
-    # בדיקה אם הרכב קיים
-    if vehicle_id not in data:
-        print(f"Vehicle with ID {vehicle_id} not found.")
-        return
-
-    # קבלת הפרטים
-    vehicle = data[vehicle_id]
-
-    # הצגה קריאה
-    print(f"ID: {vehicle_id}")
-    print(f"Company: {vehicle.get('company')}")
-    print(f"Color: {vehicle.get('color')}")
-    print(f"Manufacture Year: {vehicle.get('Manufacture', {}).get('year')}")
-    print(f"Manufacture Country: {vehicle.get('Manufacture', {}).get('country')}")
-    print(f"First Hand: {vehicle.get('isFirstHand')}")
-    print(f"Owners: {', '.join(vehicle.get('owners', []))}")
-    print(f"Date: {vehicle.get('date')}")
-    print(f"User: {vehicle.get('user')}")
+def get_vehicle_by_id():
+    vehicle_id = input("Insert car number\n")
+    if not vehicle_id.isdigit():
+        print("Error, must be number")
+    else:
+        with open(DB_PATH, "r") as f:
+            lines = f.readlines() 
+            for line in lines:
+                if line.startswith(vehicle_id + " "):
+                    print(line.strip())
+                    return
+            print("Not in list")
           
 def add_vihicle():
     while True:
