@@ -1,6 +1,5 @@
 import os
 import json
-import re
 
 from datetime import date
 
@@ -10,10 +9,6 @@ DB_PATH = os.path.join(BASE_DIR, "CartellDB.json")
 if not os.path.exists(DB_PATH):
     with open(DB_PATH, "w") as f:
         json.dump({}, f, indent=4)
-
-def validate_username(username):
-    pattern = r"^[A-Z][a-z]+_[a-z]$"
-    return re.match(pattern, username)
     
 def get_vehicles():
   with open(DB_PATH, "r") as f:
@@ -24,23 +19,39 @@ def get_vehicles():
     for key,value in data.items():
         print(key, ":", value)
 
+def get_vehicle_by_id(vehicle_id):
+    """
+    מחפש רכב לפי ID ומחזיר את הפרטים שלו.
+    """
+    vehicle_id = str(vehicle_id)  # המפתח במילון הוא מחרוזת
 
-def get_vehicle_by_id():
-    vehicle_id = str(vehicle_id)
-    vehicle_id = input("Insert car number\n")
-    if not vehicle_id.isdigit():
-        print("Error, must be number")
-    else:
-        with open(DB_PATH, "r") as f:
-            lines = f.readlines() 
-            for line in lines:
-                if line.startswith(vehicle_id + " "):
-                    print(line.strip())
-                    return
-            print("Not in list")
-            
+    # טוענים את המאגר
+    with open(DB_PATH, "r", encoding="utf-8") as f:
+        try:
+            data = json.load(f)
+        except json.JSONDecodeError:
+            print("Database is empty or corrupted.")
+            return
 
+    # בדיקה אם הרכב קיים
+    if vehicle_id not in data:
+        print(f"Vehicle with ID {vehicle_id} not found.")
+        return
 
+    # קבלת הפרטים
+    vehicle = data[vehicle_id]
+
+    # הצגה קריאה
+    print(f"ID: {vehicle_id}")
+    print(f"Company: {vehicle.get('company')}")
+    print(f"Color: {vehicle.get('color')}")
+    print(f"Manufacture Year: {vehicle.get('Manufacture', {}).get('year')}")
+    print(f"Manufacture Country: {vehicle.get('Manufacture', {}).get('country')}")
+    print(f"First Hand: {vehicle.get('isFirstHand')}")
+    print(f"Owners: {', '.join(vehicle.get('owners', []))}")
+    print(f"Date: {vehicle.get('date')}")
+    print(f"User: {vehicle.get('user')}")
+          
 def add_vihicle():
     while True:
         car_num = input("Add car number\n")
@@ -88,21 +99,13 @@ def add_vihicle():
 
 def main():
     tries = 0
-
-    while True:
-        user = input("Enter your username (Firstname_l): ").strip()
-        if validate_username(user):
-            break
-        print("Invalid username format. Example: Ilai_d")
-
-    print(f"Welcome, {user}!")0
     
     while True:
         options = input("Choose your choice\n 1: Show all vehicles.\n 2: Get vehicle by number.\n 3: Add a new vehicle.\n Type exit to quit\n")
         if options == "1":
             get_vehicles()
         elif options == "2":
-            get_vehicle_by_id()
+            get_vehicle_by_id(vehicle_id)
         elif options == "3":
             add_vihicle()
         elif options.lower() == "exit":
