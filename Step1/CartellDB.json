@@ -1,0 +1,27 @@
+[
+    {
+        "id": 9321299,
+        "color": "white",
+        "company": "toyota",
+        "Manufacture": {
+            "year": 2016,
+            "country": "japan"
+        },
+        "isFirstHand": false,
+        "owners": ["gidi_g", "donald_t", "ronen_b"],
+        "date": "25/09/2025",
+        "user": "ilai_d"
+    },
+    {
+        "id": 525381648,
+        "color": "black",
+        "company": "mazda",
+        "Manufacture": {
+            "year": 2019,
+            "country": "korea"
+        },
+        "isFirstHand": true,
+        "date": "25/09/2025",
+        "user": "ilai_d"
+    }
+]
