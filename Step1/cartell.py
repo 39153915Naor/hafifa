@@ -1,5 +1,7 @@
 import os
 import json
+import re
+
 from datetime import date
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -8,7 +10,11 @@ DB_PATH = os.path.join(BASE_DIR, "CartellDB.json")
 if not os.path.exists(DB_PATH):
     with open(DB_PATH, "w") as f:
         json.dump({}, f, indent=4)
-        
+
+def validate_username(username):
+    pattern = r"^[A-Z][a-z]+_[a-z]$"
+    return re.match(pattern, username)
+    
 def get_vehicles():
   with open(DB_PATH, "r") as f:
     data = json.load(f)
@@ -20,6 +26,7 @@ def get_vehicles():
 
 
 def get_vehicle_by_id():
+    vehicle_id = str(vehicle_id)
     vehicle_id = input("Insert car number\n")
     if not vehicle_id.isdigit():
         print("Error, must be number")
@@ -81,6 +88,15 @@ def add_vihicle():
 
 def main():
     tries = 0
+
+    while True:
+        user = input("Enter your username (Firstname_l): ").strip()
+        if validate_username(user):
+            break
+        print("Invalid username format. Example: Ilai_d")
+
+    print(f"Welcome, {user}!")0
+    
     while True:
         options = input("Choose your choice\n 1: Show all vehicles.\n 2: Get vehicle by number.\n 3: Add a new vehicle.\n Type exit to quit\n")
         if options == "1":
