@@ -11,13 +11,13 @@ if not os.path.exists(DB_PATH):
         json.dump({}, f, indent=4)
     
 def get_vehicles():
-  with open(DB_PATH, "r") as f:
-    data = json.load(f)
-    if not data:
-        print("List is empty")
-        return
-    for key,value in data.items():
-        print(key, ":", value)
+    with open(DB_PATH, "r") as f:
+        vehicles = json.load(f)  
+        if not vehicles:
+            print("List is empty")
+            return
+        for vehicle in vehicles:
+            print(json.dumps(vehicle, indent=4))
 
 def get_vehicle_by_id():
     vehicle_id = input("Insert car number\n")
