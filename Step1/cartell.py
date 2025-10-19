@@ -28,7 +28,7 @@ def get_vehicle_by_id():
     vehicle_id = int(vehicle_id)
 
   
-        with open(DB_PATH, "r") as f:
+    with open(DB_PATH, "r") as f:
             vehicles = json.load(f)  
   
     for vehicle in vehicles:
