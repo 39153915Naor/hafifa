@@ -20,31 +20,23 @@ def get_vehicles():
         print(key, ":", value)
 
 def get_vehicle_by_id():
-
     vehicle_id = input("Insert car number\n")
-
     if not vehicle_id.isdigit():
         print("Error, must be number")
         return
 
-    with open(DB_PATH, "r", encoding="utf-8") as f:
-        data = json.load(f)
+    vehicle_id = int(vehicle_id)
 
-    vehicle = data.get(vehicle_id)
+  
+        with open(DB_PATH, "r") as f:
+            vehicles = json.load(f)  
+  
+    for vehicle in vehicles:
+        if vehicle.get("id") == vehicle_id:
+            print(json.dumps(vehicle, indent=4)) 
+            return
 
-    if not vehicle:
-        print("Vehicle not found.")
-        return
-
-    print(f"ID: {vehicle_id}")
-    print(f"Company: {vehicle.get('company')}")
-    print(f"Color: {vehicle.get('color')}")
-    print(f"Manufacture Year: {vehicle.get('Manufacture', {}).get('year')}")
-    print(f"Manufacture Country: {vehicle.get('Manufacture', {}).get('country')}")
-    print(f"First Hand: {vehicle.get('isFirstHand')}")
-    print(f"Owners: {', '.join(vehicle.get('owners', []))}")
-    print(f"Date: {vehicle.get('date')}")
-    print(f"User: {vehicle.get('user')}")
+    print("Not in list")
 
 def add_vihicle():
     while True:
