@@ -8,7 +8,7 @@ DB_PATH = os.path.join(BASE_DIR, "CartellDB.json")
 
 if not os.path.exists(DB_PATH):
     with open(DB_PATH, "w") as f:
-        json.dump({}, f, indent=4)
+        json.dump([], f, indent=4)
     
 def get_vehicles():
     with open(DB_PATH, "r") as f:
