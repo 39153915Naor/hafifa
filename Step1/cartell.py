@@ -40,15 +40,17 @@ def get_vehicle_by_id():
 
 def add_vihicle():
     while True:
-        car_num = input("Add car number\n")
+        car_num = input("Add car id\n")
         if not car_num.isdigit():
-            print("Error: car num must be number")
+            print("Error: id must be number")
             return  
 
         
-        with open(DB_PATH, "r") as f:
-            lines = f.readlines()
-            if any(line.startswith(car_num + " ") for line in lines):
+    with open(DB_PATH, "r") as f:
+        vehicles = json.load(f)  
+  
+    for vehicle in vehicles:
+        if vehicle.get("id") == vehicle_id:
                 print("Error: car in file")
                 return  
 
@@ -62,15 +64,30 @@ def add_vihicle():
             print("Error: color must be word")
             return
 
-        car_year = input("Add car year\n")
+        car_year = input("Add car year of manufacture\n")
         if not car_year.isdigit():
             print("Error: car year must be number")
+            return
+            
+        car_country = input("Add car country of manufacture\n")
+        if not car_country.isalpha():
+            print("Error: car country must be word")
             return
 
         car_km = input("Add car km\n")
         if not car_km.isdigit():
             print("Error: car km must be number")
             return
+
+        isFirstHand = input("is the car first hand?\n")
+        if not isFirstHand.isalpha():
+            print("Error: answer must be number")
+            return
+        if isFirstHand.lower() == no:
+            car_owner = inpur("please enter previous owners\n")
+            if not car_owner.isalpha():
+                print("Error: answer must be number")
+                return
 
         
         with open(DB_PATH, "a") as f:
