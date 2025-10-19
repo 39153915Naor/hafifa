@@ -27,7 +27,7 @@ def get_vehicle_by_id():
         print("Error, must be number")
         return
 
-    with open(DB_PATH, "r", encoding="utf-8") as f:
+    with open(DB_PATH, "r") as f:
         data = json.load(f)
 
     vehicle = data.get(vehicle_id)
