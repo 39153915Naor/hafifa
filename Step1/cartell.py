@@ -7,7 +7,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, "CartellDB.json")
 LOG_PATH = os.path.join(BASE_DIR, "cartellogs.txt")
 
-# Initialize files
+
 if not os.path.exists(DB_PATH):
     with open(DB_PATH, "w") as f:
         json.dump([], f, indent=4)
@@ -17,7 +17,7 @@ if not os.path.exists(LOG_PATH):
         f.write("")
 
 
-# Logging function
+
 def log_action(username, action):
     time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     log_line = f"{time}  {username} {action}\n"
@@ -25,7 +25,7 @@ def log_action(username, action):
         f.write(log_line)
 
 
-# Show all vehicles
+
 def get_vehicles(username):
     with open(DB_PATH, "r") as f:
         vehicles = json.load(f)
@@ -38,7 +38,7 @@ def get_vehicles(username):
     log_action(username, f"user viewed all {len(vehicles)} vehicles")
 
 
-# Search vehicle by ID
+
 def get_vehicle_by_id(username):
     vehicle_id = input("Enter car ID:\n")
     if not vehicle_id.isdigit():
@@ -60,7 +60,7 @@ def get_vehicle_by_id(username):
     log_action(username, f"user searched car - {vehicle_id} (not found)")
 
 
-# Add a new vehicle
+
 def add_vehicle(username):
     while True:
         car_id = input("Enter car ID:\n")
@@ -128,7 +128,7 @@ def add_vehicle(username):
             break
 
 
-# Main program
+
 def main():
     tries = 0
     while True:
