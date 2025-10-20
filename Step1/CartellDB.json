@@ -8,7 +8,11 @@
             "country": "japan"
         },
         "isFirstHand": false,
-        "owners": ["gidi_g", "donald_t", "ronen_b"],
+        "owners": [
+            "gidi_g",
+            "donald_t",
+            "ronen_b"
+        ],
         "date": "25/09/2025",
         "user": "ilai_d"
     },
@@ -23,5 +27,33 @@
         "isFirstHand": true,
         "date": "25/09/2025",
         "user": "ilai_d"
+    },
+    {
+        "id": 1234321,
+        "color": "red",
+        "company": "tesla",
+        "Manufacture": {
+            "year": 2025,
+            "country": "usa"
+        },
+        "isFirstHand": true,
+        "date": "19/10/2025",
+        "user": "Shugi_m"
+    },
+    {
+        "id": 111111,
+        "color": "red",
+        "company": "subaro",
+        "Manufacture": {
+            "year": 1990,
+            "country": "israel"
+        },
+        "isFirstHand": false,
+        "date": "20/10/2025",
+        "user": "Naor_e",
+        "owners": [
+            "yonatan",
+            "itamar"
+        ]
     }
 ]
